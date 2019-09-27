@@ -1,0 +1,41 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+    <link rel="stylesheet" href="./stressTestVue.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div class="container" id="search">
+            <p>Busca entre nuestros títulos:</p><input id="input" v-model="value" placeholder="Buscar..."></input>
+        </div>
+
+        <div class="container" id="content">
+
+            <div v-for="book in getBooks" class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img id="portada" v-bind:src="book.portada" alt="portada" style="width:300px;height:400px;">
+                    </div>
+                    <div class="flip-card-back">
+                        <h1 class="texto"> {{book.titulo}}</h1>
+                        <p id="bookDescription">{{book.descripcion}}</p>
+                        <button class="button" v-bind:href="book.detalle" data-fancybox="images"> VER DETALLE...
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+        <script src="./stressTestVue.js"></script>
+
+</body>
+
+</html>
